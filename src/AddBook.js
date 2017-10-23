@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 class AddBook extends Component {
+  
+  onAddBook() {
+    
+  }
 
   render() { 
-    
+
     return (
       <div className="search-books">
       <div className="search-books-bar">
