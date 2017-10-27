@@ -19,16 +19,26 @@ class BooksApp extends Component {
   addBook(book) {
     BooksAPI.create(book).then(book => {
       this.setState(state => ({
-        books: state.books.concat([ book ])
+
+        books: state.books.set([ book ])
       }))
     })
   }
 
+  changeShelf = (book) => {
+    this.setState((state) => ({
+      books: state.book.filter((c) => c.shelf !== book.shelf)       
+    }))
+    BooksAPI.update(book)
+  }
+
   render() {
+
     return (
       <div className="app">
         <Route exact path="/" render={() => (
           <ShowBooks
+            onChangeShelf={this.changeShelf}
             books={this.state.books}
           />
         )}/>
