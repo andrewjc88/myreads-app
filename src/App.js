@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import ShowBooks from './ShowBooks'
+import ShowShelves from './ShowShelves'
 import AddBook from './AddBook'
 import './App.css'
 
@@ -25,22 +25,28 @@ class BooksApp extends Component {
     })
   }
 
-  changeShelf = (book) => {
-    this.setState((state) => ({
-      books: state.book.filter((c) => c.shelf !== book.shelf)       
-    }))
-    BooksAPI.update(book)
-  }
+  // BooksAPI.update(book, shelf).then(
+  //   this.setState((state) => ({
+  //     books: state.books.map(b => {
+  //       if (b.title === book.title) {
+  //         b.shelf = shelf;
+  //         return b
+  //       } else {
+  //         return b
+  //       }
+  //     })
+  //   }))
+  // )
 
   render() {
 
     return (
       <div className="app">
-        <Route exact path="/" render={() => (
-          <ShowBooks
-            onChangeShelf={this.changeShelf}
-            books={this.state.books}
-          />
+          <Route exact path="/" render={() => (
+            <ShowShelves
+              onChangeShelf={this.changeShelf}
+              books={this.state.books}
+            />
         )}/>
         <Route path="/AddBook" render={({ history }) => (
           <AddBook
