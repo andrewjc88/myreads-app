@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import changeCase from 'change-case'
 import ShowBooks from './ShowBooks'
 
 
@@ -8,21 +9,15 @@ class ShowShelves extends Component {
     
   }
 
-  changeShelf = (book, shelf) => {
-    this.setState((state) => ({
-      books: state.book.filter((c) => c.shelf !== book.shelf)       
-    }))
-    // BooksAPI.update(book)
-  }
-
   render() {
     const { books } = this.props
 
     const bookShelves = books.map(book => book = book.shelf )
     const shelves = [...new Set(bookShelves)]
-
-    console.log(shelves)
     
+    // console.log(this.state)
+    
+
     return (
       <div>
           <div className="list-books">
@@ -36,9 +31,9 @@ class ShowShelves extends Component {
             <div className="list-books-content" key={shelf}>
               <div>
                 <div className="bookshelf">
-                  <h2 className="bookshelf-title">{shelf.replace( /([A-Z])/g, " $1" )}</h2>
+                  <h2 className="bookshelf-title">{changeCase.titleCase(shelf)}</h2>
                     <ShowBooks
-                      onChangeShelf={ this.changeShelf }
+                      onChangeShelf={ this.props.onChangeShelf }
                       shelf={ shelf }
                       books={ books }
                     />

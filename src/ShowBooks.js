@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 class ShowBooks extends Component {
   state = {
@@ -20,12 +19,13 @@ class ShowBooks extends Component {
                   <div className="book-top">
                   <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                     <div className="book-shelf-changer">
-                      <select>
+                      <select value={book.shelf} onChange={() => onChangeShelf(book)}>
+      
                         <option value="none" disabled>Move to...</option>
-                        <option selected value={book.shelf} onChange={() => onChangeShelf(book)}>Currently Reading</option>
-                        <option value={book.shelf} onChange={() => onChangeShelf(book)}>Want to Read</option>
-                        <option value={book.shelf} onChange={() => onChangeShelf(book)}>Read</option>
-                        <option value={book.shelf} onChange={() => onChangeShelf(book)}>None</option>
+                        <option value="currentlyReading" >Currently Reading</option>
+                        <option value="wantToRead" >Want to Read</option>
+                        <option value="read">Read</option>
+                        <option value={null}>None</option>
                       </select>
                     </div>
                   </div>
