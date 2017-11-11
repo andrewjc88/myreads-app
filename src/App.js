@@ -19,36 +19,25 @@ class BooksApp extends Component {
   addBook(book) {
     BooksAPI.create(book).then(book => {
       this.setState(state => ({
-
         books: state.books.set([ book ])
       }))
     })
   }
 
   changeShelf = (book, shelf) => {
-    
-    this.state.setState((state) => ({
-      book: state.book.filter((c) => c.shelf !== book.shelf)       
-    }))
-    // console.log(book)
-    // console.log(Option)
-    
-    // console.log(shelf)
-   this.props.BooksAPI.update(book)
-  }
+    BooksAPI.update(book, shelf).then(book => {
 
-  // BooksAPI.update(book, shelf).then(
-  //   this.setState((state) => ({
-  //     books: state.books.map(b => {
-  //       if (b.title === book.title) {
-  //         b.shelf = shelf;
-  //         return b
-  //       } else {
-  //         return b
-  //       }
-  //     })
-  //   }))
-  // )
+      book.shelf = shelf
+      let filteredBooks = this.state.books.filter(book => book.shelf !== shelf)
+      filteredBooks.push(book)
+      this.setState(state => ({
+        books: filteredBooks
+      }))
+    
+    })
+
+    // console.log("shelf changed")
+  }
 
   render() {
 
@@ -56,16 +45,16 @@ class BooksApp extends Component {
       <div className="app">
           <Route exact path="/" render={() => (
             <ShowShelves
-              onChangeShelf={this.changeShelf}
               books={this.state.books}
+              onChangeShelf={this.changeShelf}
             />
         )}/>
         <Route path="/AddBook" render={({ history }) => (
           <AddBook
-            /* onAddBook={(book) => {
+            onAddBook={(book) => {
               this.addBook(book)
               history.push('/')
-            }}  */
+            }} 
           />
         )}/>
       </div>

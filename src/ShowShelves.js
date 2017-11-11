@@ -14,9 +14,6 @@ class ShowShelves extends Component {
 
     const bookShelves = books.map(book => book = book.shelf )
     const shelves = [...new Set(bookShelves)]
-    
-    // console.log(this.state)
-    
 
     return (
       <div>
