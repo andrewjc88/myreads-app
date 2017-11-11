@@ -25,19 +25,12 @@ class BooksApp extends Component {
   }
 
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(book => {
-
-      book.shelf = shelf
-      let filteredBooks = this.state.books.filter(book => book.shelf !== shelf)
-      filteredBooks.push(book)
-      this.setState(state => ({
-        books: filteredBooks
-      }))
-    
-    })
-
-    // console.log("shelf changed")
-  }
+    BooksAPI.update(book, shelf)
+    .then( this.setState ((state) => ({
+      books: state.books.map(b => { if (b.title === book.title) { b.shelf = shelf;
+      return b} else { return b } 
+    }) 
+  })) )}
 
   render() {
 
