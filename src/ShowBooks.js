@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
 class ShowBooks extends Component {
-  state = {
-    
-  }
 
   render() {
 
@@ -21,13 +18,13 @@ class ShowBooks extends Component {
                     <div className="book-shelf-changer">
 
                       <select value={book.shelf} onChange={event => onChangeShelf(book, event.target.value)}>
-      
+
                         <option value="none" disabled>Move to...</option>
                         <option value="currentlyReading" >Currently Reading</option>
                         <option value="wantToRead" >Want to Read</option>
                         <option value="read">Read</option>
                         <option value={null}>None</option>
-                        
+
                       </select>
                     </div>
                   </div>

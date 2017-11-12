@@ -10,17 +10,18 @@ class BooksApp extends Component {
     books: []
   }
   
-  componentDidMount() {
+  componentDidMount = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
   }
 
-  addBook(book) {
+  addBook = (book) => {
     BooksAPI.create(book).then(book => {
       this.setState(state => ({
         books: state.books.set([ book ])
       }))
+      console.log("was added")
     })
   }
 
