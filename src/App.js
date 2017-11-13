@@ -16,19 +16,17 @@ class BooksApp extends Component {
     })
   }
 
-  addBook = (book) => {
-    BooksAPI.create(book).then(book => {
-      this.setState(state => ({
-        books: state.books.set([ book ])
-      }))
-      console.log("was added")
-    })
+  addBook = (book, shelf) => {
+    book.shelf = shelf
+    this.setState(state => ({
+      books: state.books.concat([ book ])
+    }))
   }
 
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    .then( this.setState ((state) => ({
-      books: state.books.map(b => { if (b.title === book.title) { b.shelf = shelf;
+    // (book !== this.state.books) &&
+    BooksAPI.update(book, shelf).then( this.setState ((state) => ({
+      books: state.books.map(b => { if (b.title === book.title) { b.shelf = shelf
       return b} else { return b } 
     }) 
   })) )}
@@ -45,10 +43,11 @@ class BooksApp extends Component {
         )}/>
         <Route path="/AddBook" render={({ history }) => (
           <AddBook
-            onAddBook={(book) => {
-              this.addBook(book)
+            onChangeShelf={(book, shelf) => {
+              this.addBook(book, shelf)
               history.push('/')
             }} 
+            books={this.state.books}
           />
         )}/>
       </div>

@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 
 class ShowBooks extends Component {
 
+
   render() {
 
     const { onChangeShelf, books, shelf} = this.props
 
     return (
-      <div className="bookshelf-books">
         <ol className="books-grid">
+
           {books.map((book) => (           
-            shelf === book.shelf ? (
+            (shelf === book.shelf) && (
               <li key={book.id}>
                 <div className="book">
                   <div className="book-top">
@@ -32,11 +33,10 @@ class ShowBooks extends Component {
                   <div className="book-authors">{book.auther}</div>
                 </div>
               </li>
-            ):(null)
+            )
           ))}
-        </ol>
-      </div>
 
+        </ol>
     )
   }
 }
