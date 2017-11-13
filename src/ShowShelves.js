@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import changeCase from 'change-case'
 import ShowBooks from './ShowBooks'
-import sortBy from 'sort-by'
+// import sortBy from 'sort-by'
 
 class ShowShelves extends Component {
 
   render() {
     const { books } = this.props
-
     const bookShelves = books.map(book => book = book.shelf )
     const shelves = [...new Set(bookShelves)]
+
+
 
     return (
       <div>

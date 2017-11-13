@@ -24,7 +24,7 @@ class ShowBooks extends Component {
                         <option value="currentlyReading" >Currently Reading</option>
                         <option value="wantToRead" >Want to Read</option>
                         <option value="read">Read</option>
-                        <option value={null}>None</option>
+                        <option value=''>None</option>
 
                       </select>
                     </div>
