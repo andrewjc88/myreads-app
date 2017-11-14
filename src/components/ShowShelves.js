@@ -7,11 +7,11 @@ import ShowBooks from './ShowBooks'
 class ShowShelves extends Component {
 
   render() {
+
     const { books } = this.props
+
     const bookShelves = books.map(book => book = book.shelf )
     const shelves = [...new Set(bookShelves)]
-
-
 
     return (
       <div>

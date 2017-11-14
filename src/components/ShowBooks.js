@@ -11,12 +11,14 @@ class ShowBooks extends Component {
         <ol className="books-grid">
 
           {books.map((book) => (           
-            (shelf === book.shelf) && (
+            ((shelf === book.shelf) || (shelf === '')) && (
               <li key={book.id}>
+              {console.log(book.shelf)}
                 <div className="book">
                   <div className="book-top">
                   <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                     <div className="book-shelf-changer">
+                    {(book.shelf === undefined) && (book.shelf = '')}
 
                       <select value={book.shelf} onChange={event => onChangeShelf(book, event.target.value)}>
 

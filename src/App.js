@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import ShowShelves from './ShowShelves'
-import AddBook from './AddBook'
+import ShowShelves from './components/ShowShelves'
+import SearchBooks from './components/SearchBooks'
 import './App.css'
 
 class BooksApp extends Component {
-  state = {
+  constructor(args) {
+    super(args);
+    this.state = {
     books: [],
-    query: '',
-    showingBooks: []
-  }
+  }}
   
   componentDidMount = () => {
     BooksAPI.getAll().then((books) => {
@@ -26,22 +26,14 @@ class BooksApp extends Component {
   }
 
   changeShelf = (book, shelf) => {
-    // (book !== this.state.books) &&
-    BooksAPI.update(book, shelf).then( this.setState ((state) => ({
+    BooksAPI.update(book, shelf)
+    .then( this.setState ((state) => ({
       books: state.books.map(b => { 
         if (b.title === book.title) { b.shelf = shelf
       return b} else { return b } 
-    }) 
-  })) )}
-
-  updateQuery = (query) => {
-    this.setState(state => ({ query: query }))
-    if (query.length > 0) 
-      BooksAPI.search(query).then((books) => {        
-        this.setState(state => ({ showingBooks: books }))
-      })
-      // console.log(this.state.query)
-    } 
+      }) 
+    })) 
+  )}
 
   render() {
 
@@ -54,15 +46,12 @@ class BooksApp extends Component {
             />
         )}/>
         <Route path="/AddBook" render={({ history }) => (
-          <AddBook
+          <SearchBooks
             onChangeShelf={(book, shelf) => {
               this.addBook(book, shelf)
               history.push('/')
             }}
-            onUpdateQuery={this.updateQuery}
-            query={this.state.query}
             books={this.state.books}
-            showingBooks={this.state.showingBooks}
           />
         )}/>
       </div>
