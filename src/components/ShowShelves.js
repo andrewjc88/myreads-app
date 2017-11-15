@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import changeCase from 'change-case'
 import ShowBooks from './ShowBooks'
 // import sortBy from 'sort-by'
 
-class ShowShelves extends Component {
+const ShowShelves = React.createClass({
 
   render() {
 
@@ -40,13 +40,13 @@ class ShowShelves extends Component {
             ))} 
 
             <div className="open-search">
-              <Link to="/AddBook">Add a book</Link>
+              <Link to="/Search">Add a book</Link>
             </div>
           </div>
       </div>
 
     )
   }
-}
+})
   
 export default ShowShelves

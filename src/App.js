@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
+
 import * as BooksAPI from './BooksAPI'
 import ShowShelves from './components/ShowShelves'
 import SearchBooks from './components/SearchBooks'
 import './App.css'
 
 class BooksApp extends Component {
-  constructor(args) {
-    super(args);
+  constructor(props) {
+    super(props);
     this.state = {
     books: [],
   }}
@@ -45,7 +46,7 @@ class BooksApp extends Component {
               onChangeShelf={this.changeShelf}
             />
         )}/>
-        <Route path="/AddBook" render={({ history }) => (
+        <Route path="/Search" render={({ history }) => (
           <SearchBooks
             onChangeShelf={(book, shelf) => {
               this.addBook(book, shelf)

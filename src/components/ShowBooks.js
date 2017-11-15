@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class ShowBooks extends Component {
-
+const ShowBooks = ({}) => ({
 
   render() {
 
@@ -41,6 +40,6 @@ class ShowBooks extends Component {
         </ol>
     )
   }
-}
+})
 
 export default ShowBooks
