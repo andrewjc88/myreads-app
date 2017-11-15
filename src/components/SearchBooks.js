@@ -41,8 +41,10 @@ class SearchBooks extends Component {
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">  
               <input
+                type="text"
+                minLength={1}
+                debounceTimeout={300}
                 className="input"
-                type="text" 
                 placeholder="Search by title or author"
                 value={query}
                 onChange={(event) => this.queryInput(event.target.value)}
@@ -51,7 +53,7 @@ class SearchBooks extends Component {
         </div>
         <div className="search-books-results">
 
-            {((query.length > 0 && (QueryRsults.error !== true)) &&
+            {((query.length > 0 && QueryRsults.error !== true) &&
             <ShowBooks
               onChangeShelf={ this.props.onChangeShelf }
               books={QueryRsults}

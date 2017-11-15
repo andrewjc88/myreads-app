@@ -4,11 +4,9 @@ import changeCase from 'change-case'
 import ShowBooks from './ShowBooks'
 // import sortBy from 'sort-by'
 
-const ShowShelves = React.createClass({
+const ShowShelves = ({books}) => ({
 
   render() {
-
-    const { books } = this.props
 
     const bookShelves = books.map(book => book = book.shelf )
     const shelves = [...new Set(bookShelves)]
