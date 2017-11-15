@@ -2,8 +2,6 @@
   "dependencies": {
     "change-case": "^3.0.1",
     "escape-string-regexp": "^1.0.5",
-    "gh-pages": "^1.0.0",
-    "homepage": "https://andrewjc88.github.io/reactnd_myreads_project",
     "prop-types": "^15.5.8",
     "react": "^15.6.2",
     "react-debounce-input": "^3.1.0",
@@ -21,19 +19,5 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "name": "reactnd_myreads_project",
-  "description": "This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andrewjc88/reactnd_myreads_project.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/andrewjc88/reactnd_myreads_project/issues"
-  },
-  "homepage": "https://github.com/andrewjc88/reactnd_myreads_project#readme"
+  }
 }

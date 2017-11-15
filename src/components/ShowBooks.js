@@ -4,7 +4,7 @@ const ShowBooks = ({onChangeShelf, books, shelf}) => ({
 
   render() {
 
-    // const { onChangeShelf, books, shelf} = this.props
+    const { onChangeShelf, books, shelf} = this.props
 
     return (
         <ol className="books-grid">

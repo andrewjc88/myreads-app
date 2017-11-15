@@ -4,9 +4,11 @@ import changeCase from 'change-case'
 import ShowBooks from './ShowBooks'
 // import sortBy from 'sort-by'
 
-const ShowShelves = ({books}) => ({
+const ShowShelves = ({}) => ({
 
   render() {
+
+    const { books } = this.props
 
     const bookShelves = books.map(book => book = book.shelf )
     const shelves = [...new Set(bookShelves)]
