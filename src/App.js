@@ -7,11 +7,10 @@ import SearchBooks from './components/SearchBooks'
 import './App.css'
 
 class BooksApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    books: [],
-  }}
+
+  state = {
+    books: []
+  }
   
   componentDidMount = () => {
     BooksAPI.getAll().then((books) => {

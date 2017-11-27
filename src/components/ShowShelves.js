@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import changeCase from 'change-case'
 import ShowBooks from './ShowBooks'
 
-const ShowShelves = ({}) => {
-
-  const { books } = this.props
+const ShowShelves = ({ books, onChangeShelf }) => {
+  
+  // const { books } = this.props
 
   const bookShelves = books.map(book => book = book.shelf )
   const shelves = [...new Set(bookShelves)]
@@ -27,7 +27,7 @@ const ShowShelves = ({}) => {
                 <h2 className="bookshelf-title">{changeCase.titleCase(shelf)}</h2>
                 <div className="bookshelf-books">
                   <ShowBooks
-                    onChangeShelf={ this.props.onChangeShelf }
+                    onChangeShelf={ onChangeShelf }
                     shelf={ shelf }
                     books={ books }
                   />

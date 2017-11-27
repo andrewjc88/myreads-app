@@ -6,12 +6,9 @@ import ShowBooks from './ShowBooks'
 
 class SearchBooks extends Component {
   
-  constructor(props) {
-    super(props);  
-    this.state = {
+  state = {
     query: '',
     bookResults: []
-    }
   }
 
   queryInput = (query) => {
