@@ -39,7 +39,7 @@ class BooksApp extends Component {
 
     return (
       <div className="app">
-          <Route exact path="/" render={() => (
+          <Route exact path={process.env.PUBLIC_URL + '/'} render={() => (
             <ShowShelves
               books={this.state.books}
               onChangeShelf={this.changeShelf}
