@@ -11,7 +11,7 @@ class BooksApp extends Component {
   state = {
     books: []
   }
-  
+
   componentDidMount = () => {
     BooksAPI.getAll().then((books) => {
       this.setState(state => ({ books: books }))
@@ -28,11 +28,11 @@ class BooksApp extends Component {
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf)
     .then( this.setState ((state) => ({
-      books: state.books.map(b => { 
+      books: state.books.map(b => {
         if (b.title === book.title) { b.shelf = shelf
-      return b} else { return b } 
-      }) 
-    })) 
+      return b} else { return b }
+      })
+    }))
   )}
 
   render() {
@@ -49,7 +49,7 @@ class BooksApp extends Component {
           <SearchBooks
             onChangeShelf={(book, shelf) => {
               this.addBook(book, shelf)
-              history.push('/')
+              history.push(process.env.PUBLIC_URL + '/')
             }}
             books={this.state.books}
           />

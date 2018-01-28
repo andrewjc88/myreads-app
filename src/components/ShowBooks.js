@@ -6,8 +6,9 @@ const ShowBooks = ({onChangeShelf, books, shelf}) => {
 
     <ol className="books-grid">
 
-      {books.map((book) => (           
-        ((shelf === book.shelf) || (shelf === '')) && (
+      {
+        Array.isArray(books) ? (
+        books.map((book) => (
           <li key={book.id}>
             <div className="book">
               <div className="book-top">
@@ -30,8 +31,11 @@ const ShowBooks = ({onChangeShelf, books, shelf}) => {
               <div className="book-authors">{book.auther}</div>
             </div>
           </li>
-        )
-      ))}
+        ))
+      ) : (
+        <h2>No Results...</h2>
+      )
+    }
     </ol>
 
   );
