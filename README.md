@@ -22,6 +22,3 @@ I built this app using:
 * React - for the front-end html css.
 * React-router: controll navigation url. 
 * Node.js: host local Udacity-books api using 
-## Why?
-This is project 1 of the Udacity React Nano Degree prgram. 
-https://www.udacity.com/course/react-nanodegree--nd019
